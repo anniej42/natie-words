@@ -1,4 +1,4 @@
-var Sentencer = require('./node_modules/sentencer');
+var Sentencer = require('sentencer');
 var express = require('express');
 var app      = express();
 // var hbs = require('handlebars');

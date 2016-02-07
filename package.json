@@ -1,5 +1,5 @@
 {
-  "name": "sentencer",
+  "name": "natie-words",
   "version": "0.1.5",
   "description": "Sentencer is a string templating engine for madlibs-style sentence generating.",
   "scripts": {
@@ -12,7 +12,8 @@
     "handlebars": "^4.0.5",
     "lodash": "~2.4.1",
     "natural": "~0.1.28",
-    "randy": "~1.5.1"
+    "randy": "~1.5.1",
+    "sentencer": "^0.1.5"
   },
   "devDependencies": {
     "gulp": "~3.8.8",
@@ -26,6 +27,9 @@
     "madlibs",
     "metaphorpsum"
   ],
-  "author": "Kyle Stetz",
+  "engines": {
+    "node": "4.1.1"
+  },
+  "author": "Annie Jiao",
   "license": "MIT"
 }
