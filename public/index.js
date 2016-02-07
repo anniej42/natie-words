@@ -1,69 +1,29 @@
 
-// function mainController(scope, http) {
-//     scope.formData = {};
-
-//     // when landing on the page, get all todos and show them
-//     http.get('/api/onload')
-//         .success(function(data) {
-//             scope.todos = data;
-//             console.log(data);
-//         })
-//         .error(function(data) {
-//             console.log('Error: ' + data);
-//         });
-
-// }
-
-//  app.get('/api/onload')
-//         .success(function(data) {
-//             scope.todos = data;
-//             console.log(data);
-//         })
-//         .error(function(data) {
-//             console.log('Error: ' + data);
-//         });
-
-// $( function() {
-
-//   var tap = !!('ontouchstart' in window) || !!('msmaxtouchpoints' in window.navigator);
-//   $('body').addClass(tap ? 'tap' : 'no-tap');
-
-//   //////////////////////////////////
-
-//   var $input  = $('[data-input]');
-//   var $output = $('[data-output]');
-//   var $render = $('[data-render]');
-//   var $spookyRender = $('[data-spooky-render]');
-
-//   var makingRequest = false;
-
-//   //////////////////////////////////
-
-//   function renderText(template, spooky) {
-//     // no ajaxing if we're already ajaxing.
-//     if(makingRequest) {
-//       return;
-//     }
-//     // dim the output to indicate that we're waiting
-//     makingRequest = true;
-//     $output.toggleClass('dim', true);
-
 $.get(
   'https://natie-words.herokuapp.com/getWords' ,
   function(data) {
     console.log(data);
 
-    var wordList = data.words.split(",")
+    var adj1List = data.adj1.split(",");
+    var adj2List = data.adj2.split(",");
+    var nounList = data.nouns.split(",");
 
-    html = "";
-    for (var i=0; i<wordList.length; i++){
-    	html += '<div class="poster" style="-webkit-transform: rotateX(' + i*30 + 'deg) translateZ(200px); "><p>';
-    	html += wordList[i];
-    	html+= '</p></div>';
+    var wordLists = [adj1List, adj2List, nounList];
+    var rings = [$("#ring-1"), $("#ring-2"), $("#ring-3")];
+    for (var j=0; j<rings.length; j++){
+	    var html = "";
+	    for (var i=0; i<wordLists[j].length; i++){
+	    	html += '<div class="poster" style="-webkit-transform: rotateX(' + i*30 + 'deg) translateZ(200px); "><p>';
+	    	html += wordLists[j][i];
+	    	html+= '</p></div>';
+	    }
+	    rings[j].html(html);
     }
-    $("#ring-1").html(html);
+
   }
 );
+
+
 //   }
 
 //   //////////////////////////////////

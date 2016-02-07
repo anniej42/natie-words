@@ -20,12 +20,18 @@ app.set('view engine', 'handlebars');
 
 Sentencer.configure({
   actions: {
-    nounList: function() {
+    nounList: function(n) {
       nounList=[];
-      for (var i=0; i<12; i++){
+      for (var i=0; i<n; i++){
         nounList.push(Sentencer.make("{{noun}}"));
       }
       return nounList;
+    },
+    adjList :function(n){
+      adjList = [];
+      for (var i=0; i<n; i++){
+        adjList.push(Sentencer.make("{{adjective}}"));
+      }
     }
   }
 });
@@ -71,15 +77,12 @@ app.get('/getWords', function (req, res) {
   res.header('Access-Control-Allow-Origin', "*")
   console.log("stuff")
     // var template = hbs.compile(home);
-    var subjects = Sentencer.make("{{nounList}}");
-    var words = {"words" : Sentencer.make("{{nounList}}")};
+    var adj1 = Sentencer.make("{{adjList(12)}}");
+    var adj2 = Sentencer.make("{{adjList(12)}}");
+    var nouns = Sentencer.make("{{nounList(12)}}");
 
-    // var html    = template(data);
-    // $output.toggleClass('dim', false);
-    // $output.html(data);
-  
-   // res.send(html);
-   // res.render('home', data);
+    var words = {"adj1": adj1, "adj2":adj2, "nouns":nouns}
+
   res.send(words);
 });
 
