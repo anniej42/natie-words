@@ -10,8 +10,7 @@ var hbs = exphbs.create({
 // var home = require("views/home")
 var http = require('http');
 
-var sentence = Sentencer.make("This sentence has {{ a_noun }} and {{ an_adjective }} {{ noun }} in it.");
-console.log(sentence)
+
 
 app.use(express.static(__dirname + '/public')); 
 app.enable('view cache');
@@ -32,9 +31,13 @@ Sentencer.configure({
       for (var i=0; i<n; i++){
         adjList.push(Sentencer.make("{{adjective}}"));
       }
+      return adjList;
     }
   }
 });
+
+// var sentence = Sentencer.make("{{adjective}} {{adjList(12)}}");
+// console.log(sentence)
 
 function exposeTemplates(req, res, next) {
     // Uses the `Expresshbs` instance to get the get the **precompiled**
