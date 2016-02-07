@@ -1,9 +1,12 @@
 var Sentencer = require('./node_modules/sentencer');
 var express = require('express');
 var app      = express();
-// var Handlebars = require('handlebars');
+// var hbs = require('handlebars');
 var exphbs  = require('express-handlebars');
-var Handlebars = exphbs.create();
+var hbs = exphbs.create({
+  defaultLayout: 'main',
+
+});
 // var home = require("views/home")
 var http = require('http');
 
@@ -12,7 +15,7 @@ console.log(sentence)
 
 app.use(express.static(__dirname + '/public')); 
 app.enable('view cache');
-
+app.engine('handlebars', hbs.engine)
 app.set('view engine', 'handlebars');
 
 Sentencer.configure({
@@ -27,30 +30,56 @@ Sentencer.configure({
   }
 });
 
-// var nouns = Sentencer.make("{{nounList}}");
-// console.log(nouns);
+function exposeTemplates(req, res, next) {
+    // Uses the `Expresshbs` instance to get the get the **precompiled**
+    // templates which will be shared with the client-side of the app.
+    hbs.getTemplates('views/', {
+        cache      : app.enabled('view cache'),
+        precompiled: true
+    }).then(function (templates) {
+        // RegExp to remove the ".handlebars" extension from the template names.
+        var extRegex = new RegExp(hbs.extname + '$');
 
-// application -------------------------------------------------------------
-app.get('*', function(req, res) {
-    // res.sendFile('./public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
-    res.send(Sentencer.make("{{nounList}}"));
-    console.log("got");
-});
+        // Creates an array of templates which are exposed via
+        // `res.locals.templates`.
+        templates = Object.keys(templates).map(function (name) {
+            return {
+                name    : name.replace(extRegex, ''),
+                template: templates[name]
+            };
+        });
+
+        // Exposes the templates during view rendering.
+        if (templates.length) {
+            res.locals.templates = templates;
+        }
+
+        setImmediate(next);
+    })
+    .catch(next);
+}
 
 
-app.get('/getwords', function (req, res) {
+// app.get('*', function(req, res) {
+//     // res.sendFile('./public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
+//     res.send(Sentencer.make("{{nounList}}"));
+//     console.log("got");
+// });
+
+
+app.get('/getWords', function (req, res) {
   console.log("stuff")
-    var template = Handlebars.compile(home);
+    // var template = hbs.compile(home);
+    var subjects = Sentencer.make("{{nounList}}");
     var words = {"words" : Sentencer.make("{{nounList}}")};
 
-    var html    = template(data);
-    console.log("stuff")
+    // var html    = template(data);
     // $output.toggleClass('dim', false);
     // $output.html(data);
   
    // res.send(html);
-   res.render('home', data);
-  // res.send({"words":words});
+   // res.render('home', data);
+  res.send(words);
 });
 
 app.listen(8080);

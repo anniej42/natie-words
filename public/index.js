@@ -51,13 +51,17 @@
 $.get(
   'http://localhost:8080/getWords' ,
   function(data) {
-    makingRequest = false;
-    // var source   = $("#template").html();
-    // var template = Handlebars.compile(source);
-    // var html    = template(data);
-    // $output.toggleClass('dim', false);
-    // $output.html(data);
     console.log(data);
+
+    var wordList = data.words.split(",")
+
+    html = "";
+    for (var i=0; i<wordList.length; i++){
+    	html += '<div class="poster" style="-webkit-transform: rotateX(' + i*30 + 'deg) translateZ(200px); "><p>';
+    	html += wordList[i];
+    	html+= '</p></div>';
+    }
+    $("#ring-1").html(html);
   }
 );
 //   }
