@@ -82,5 +82,5 @@ app.get('/getWords', function (req, res) {
   res.send(words);
 });
 
-app.listen(8080);
-console.log("App listening on port 8080");
+app.listen(process.env.PORT || 5000);
+console.log("App listening on port 5000");
