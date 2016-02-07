@@ -58,8 +58,11 @@ $.get(
 
 $(function() {
   $(document).keydown(function(evt) {
-  	if (spaceCount>3){
-  		return;
+  	if (spaceCount==3){
+  		alert("hit space to play again!")
+  	}
+  	if (spaceCount==4){
+  		location.reload();
   	}
   	
     if (evt.keyCode == 32) {
