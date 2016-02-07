@@ -49,7 +49,7 @@
 //     $output.toggleClass('dim', true);
 
 $.get(
-  'https://natie-words.herokuapp.com//getWords' ,
+  'https://natie-words.herokuapp.com/getWords' ,
   function(data) {
     console.log(data);
 
