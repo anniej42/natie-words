@@ -68,6 +68,7 @@ function exposeTemplates(req, res, next) {
 
 
 app.get('/getWords', function (req, res) {
+  res.header('Access-Control-Allow-Origin', "*")
   console.log("stuff")
     // var template = hbs.compile(home);
     var subjects = Sentencer.make("{{nounList}}");
