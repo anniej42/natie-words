@@ -1,69 +1,85 @@
+  const POSTERS_PER_ROW = 12;
+  const RING_RADIUS = 200;
 
-// function mainController(scope, http) {
-//     scope.formData = {};
+  var spaceCount = 0;
 
-//     // when landing on the page, get all todos and show them
-//     http.get('/api/onload')
-//         .success(function(data) {
-//             scope.todos = data;
-//             console.log(data);
-//         })
-//         .error(function(data) {
-//             console.log('Error: ' + data);
-//         });
+  function setup_posters (row)
+  {
+    var posterAngle = 360 / POSTERS_PER_ROW;
+    for (var i = 0; i < POSTERS_PER_ROW; i ++) {
+      var poster = document.createElement('div');
+      poster.className = 'poster';
+      // compute and assign the transform for this poster
+      var transform = 'rotateY(' + (posterAngle * i) + 'deg) translateZ(' + RING_RADIUS + 'px)';
+      poster.style.webkitTransform = transform;
+      // setup the number to show inside the poster
+      var content = poster.appendChild(document.createElement('p'));
+      content.textContent = i;
+      // add the poster to the row
+      //row.appendChild(poster);
+    }
 
-// }
+  }
 
-//  app.get('/api/onload')
-//         .success(function(data) {
-//             scope.todos = data;
-//             console.log(data);
-//         })
-//         .error(function(data) {
-//             console.log('Error: ' + data);
-//         });
+  function init ()
+  {
+    setup_posters(document.getElementById('ring-1'));
+    setup_posters(document.getElementById('ring-2'));
+    setup_posters(document.getElementById('ring-3'));
+  }
 
-// $( function() {
+  // call init once the document is fully loaded
+  window.addEventListener('load', init, false);
 
-//   var tap = !!('ontouchstart' in window) || !!('msmaxtouchpoints' in window.navigator);
-//   $('body').addClass(tap ? 'tap' : 'no-tap');
-
-//   //////////////////////////////////
-
-//   var $input  = $('[data-input]');
-//   var $output = $('[data-output]');
-//   var $render = $('[data-render]');
-//   var $spookyRender = $('[data-spooky-render]');
-
-//   var makingRequest = false;
-
-//   //////////////////////////////////
-
-//   function renderText(template, spooky) {
-//     // no ajaxing if we're already ajaxing.
-//     if(makingRequest) {
-//       return;
-//     }
-//     // dim the output to indicate that we're waiting
-//     makingRequest = true;
-//     $output.toggleClass('dim', true);
 
 $.get(
-  'https://natie-words.herokuapp.com//getWords' ,
+  'https://natie-words.herokuapp.com/getWords' ,
   function(data) {
-    console.log(data);
+    // console.log(data);
 
-    var wordList = data.words.split(",")
+    var adj1List = data.adj1.split(",");
+    var adj2List = data.adj2.split(",");
+    var nounList = data.nouns.split(",");
 
-    html = "";
-    for (var i=0; i<wordList.length; i++){
-    	html += '<div class="poster" style="-webkit-transform: rotateX(' + i*30 + 'deg) translateZ(200px); "><p>';
-    	html += wordList[i];
-    	html+= '</p></div>';
+    var wordLists = [adj1List, adj2List, nounList];
+    var rings = [$("#ring-1"), $("#ring-2"), $("#ring-3")];
+    for (var j=0; j<rings.length; j++){
+	    var html = "";
+	    for (var i=0; i<wordLists[j].length; i++){
+	    	html += '<div class="poster" style="-webkit-transform: rotateX(' + i*30 + 'deg) translateZ(200px); "><p>';
+	    	html += wordLists[j][i];
+	    	html+= '</p></div>';
+	    }
+	    rings[j].html(html);
     }
-    $("#ring-1").html(html);
+
   }
 );
+
+$(function() {
+  $(document).keydown(function(evt) {
+
+    if (evt.keyCode == 32) {
+      // increment space count to see how many wheels should be stopped
+	  	if (spaceCount==3){
+	  		$("#hideme").show();
+	  	}
+	  	if (spaceCount==4){
+	  		location.reload();
+	  	}
+  	
+      spaceCount+=1;
+      console.log("keydown")  
+      console.log("#ring-"+spaceCount)
+      console.log($("#ring-"+spaceCount))
+
+      // $("#ring-"+spaceCount).css("-webkit-animation-iteration-count", 0);
+      $("#ring-"+spaceCount).removeClass( "animated" )
+    }
+  });
+});
+
+
 //   }
 
 //   //////////////////////////////////

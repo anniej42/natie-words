@@ -10,8 +10,7 @@ var hbs = exphbs.create({
 // var home = require("views/home")
 var http = require('http');
 
-var sentence = Sentencer.make("This sentence has {{ a_noun }} and {{ an_adjective }} {{ noun }} in it.");
-console.log(sentence)
+
 
 app.use(express.static(__dirname + '/public')); 
 app.enable('view cache');
@@ -20,15 +19,25 @@ app.set('view engine', 'handlebars');
 
 Sentencer.configure({
   actions: {
-    nounList: function() {
+    nounList: function(n) {
       nounList=[];
-      for (var i=0; i<12; i++){
+      for (var i=0; i<n; i++){
         nounList.push(Sentencer.make("{{noun}}"));
       }
       return nounList;
+    },
+    adjList :function(n){
+      adjList = [];
+      for (var i=0; i<n; i++){
+        adjList.push(Sentencer.make("{{adjective}}"));
+      }
+      return adjList;
     }
   }
 });
+
+// var sentence = Sentencer.make("{{adjective}} {{adjList(12)}}");
+// console.log(sentence)
 
 function exposeTemplates(req, res, next) {
     // Uses the `Expresshbs` instance to get the get the **precompiled**
@@ -68,19 +77,17 @@ function exposeTemplates(req, res, next) {
 
 
 app.get('/getWords', function (req, res) {
+  res.header('Access-Control-Allow-Origin', "*")
   console.log("stuff")
     // var template = hbs.compile(home);
-    var subjects = Sentencer.make("{{nounList}}");
-    var words = {"words" : Sentencer.make("{{nounList}}")};
+    var adj1 = Sentencer.make("{{adjList(12)}}");
+    var adj2 = Sentencer.make("{{adjList(12)}}");
+    var nouns = Sentencer.make("{{nounList(12)}}");
 
-    // var html    = template(data);
-    // $output.toggleClass('dim', false);
-    // $output.html(data);
-  
-   // res.send(html);
-   // res.render('home', data);
+    var words = {"adj1": adj1, "adj2":adj2, "nouns":nouns}
+
   res.send(words);
 });
 
-app.listen(8080);
-console.log("App listening on port 8080");
+app.listen(process.env.PORT || 5000);
+console.log("App listening on port 5000");
