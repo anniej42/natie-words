@@ -58,15 +58,16 @@ $.get(
 
 $(function() {
   $(document).keydown(function(evt) {
-  	if (spaceCount==3){
-  		alert("hit space to play again!")
-  	}
-  	if (spaceCount==4){
-  		location.reload();
-  	}
-  	
+
     if (evt.keyCode == 32) {
       // increment space count to see how many wheels should be stopped
+	  	if (spaceCount==3){
+	  		$("#hideme").show();
+	  	}
+	  	if (spaceCount==4){
+	  		location.reload();
+	  	}
+  	
       spaceCount+=1;
       console.log("keydown")  
       console.log("#ring-"+spaceCount)
