@@ -33,7 +33,7 @@
 
 
 $.get(
-  'https://natie-words.herokuapp.com/getWords' ,
+  window.location.origin+'/getWords' ,
   function(data) {
     // console.log(data);
 
@@ -69,9 +69,6 @@ $(function() {
 	  	}
   	
       spaceCount+=1;
-      console.log("keydown")  
-      console.log("#ring-"+spaceCount)
-      console.log($("#ring-"+spaceCount))
 
       // $("#ring-"+spaceCount).css("-webkit-animation-iteration-count", 0);
       $("#ring-"+spaceCount).removeClass( "animated" )
