@@ -3,9 +3,9 @@ var express = require('express');
 var app      = express();
 // var hbs = require('handlebars');
 // var exphbs  = require('express-handlebars');
-var hbs = exphbs.create({
-  defaultLayout: 'main',
-});
+// var hbs = exphbs.create({
+//   defaultLayout: 'main',
+// });
 // var home = require("views/home")
 var http = require('http');
 
@@ -36,8 +36,8 @@ Sentencer.configure({
 
 app.use(express.static(__dirname + '/public')); 
 app.enable('view cache');
-app.engine('handlebars', hbs.engine)
-app.set('view engine', 'handlebars');
+// app.engine('handlebars', hbs.engine)
+// app.set('view engine', 'handlebars');
 
 // var sentence = Sentencer.make("{{adjective}} {{adjList(12)}}");
 // console.log(sentence)
