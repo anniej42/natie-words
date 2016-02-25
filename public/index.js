@@ -60,8 +60,6 @@
 
   $(function() {
       $("#wheels").html('<div class="stages" id="stage"> <div class="rotate" id="rotate"> <div id="ring-1" class="ring animated"> </div> </div> </div> <div class="stages" id="stage2"> <div class="rotate" id="rotate"> <div id="ring-2" class="ring animated"> </div> </div> </div> <div class="stages" id="stage3"> <div class="rotate" id="rotate"> <div id="ring-3" class="ring animated"> </div> </div> </div>')
-
-
       $(document).keydown(function(evt) {
 
           if (evt.keyCode == 32) {
@@ -70,8 +68,8 @@
               //     $("#hideme").show();
               // }
               if (spaceCount == 3) {
-                $(".ring").addClass("animated");
-                $(".poster").css("color", "rgba(0, 0, 0, 0.2)");
+                  $(".ring").addClass("animated");
+                  $(".poster").css("color", "rgba(0, 0, 0, 0.2)");
                   getWords();
                   spaceCount = 0;
                   return;
