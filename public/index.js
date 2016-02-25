@@ -71,18 +71,17 @@
               // }
               if (spaceCount == 3) {
                 $(".ring").addClass("animated");
+                $(".poster").css("color", "rgba(0, 0, 0, 0.2)");
                   getWords();
                   spaceCount = 0;
                   return;
               }
 
               spaceCount += 1;
-
               // $("#ring-"+spaceCount).css("-webkit-animation-iteration-count", 0);
               $("#ring-" + spaceCount).removeClass("animated")
-
               var children = $("#ring-" + spaceCount).children();
-              $(children).css("color", "rgba(0, 0, 0, 0.2)");
+              // $(children).css("color", "rgba(0, 0, 0, 0.2)");
               $(children).first().css("color", "rgb(90, 157, 255)");
 
           }
