@@ -1,194 +1,193 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html><head>
-    <script src="https://code.jquery.com/jquery-2.2.0.min.js"> </script>
-    <title>Poster Circle</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="initial-scale=0.60, minimum-scale=0.60, maximum-scale=0.60">
-    <script src="index.js"> </script>
-    
-    <style type="text/css">
+<html>
 
-      body {
-        font-family: 'Lucida Grande', Verdana, Arial;
-        font-size: 12px;
-      }
-
-      #stage {
-        top:40%;bottom: 0;
-        position:absolute; 
-        margin: auto;
-        width: 600;
-        height: 400;
-        /*
-        
-        Setting the perspective of the contents of the stage
-        but not the stage itself
-        
-        */
-        -webkit-perspective: 1000;
-      }
-
-      #stage2 {
-        top:40%;bottom: 0;
-        left: 30%;
-        position:absolute; 
-        margin: auto;
-        width: 600;
-        height: 400;
-        /*
-        
-        Setting the perspective of the contents of the stage
-        but not the stage itself
-        
-        */
-        -webkit-perspective: 1000;
-      }
-
-      #stage3 {
-        top:40%;bottom: 0;
-        left: 60%;
-        position:absolute; 
-        margin: auto;
-        width: 600;
-        height: 400;
-        /*
-        
-        Setting the perspective of the contents of the stage
-        but not the stage itself
-        
-        */
-        -webkit-perspective: 1000;
-      }
-
-
-      .rotate {
-        margin: 0 auto;
-        width: 600;
-        height: 400;
-        /* Ensure that we're in 3D space */
-        -webkit-transform-style: preserve-3d;
-        /*
-        Make the whole set of rows use the x-axis spin animation
-        for a duration of 7 seconds, running infinitely and linearly
-        */
-/*        -webkit-animation-name: x-spin;
-        -webkit-animation-duration: 7s;*/
-/*        -webkit-animation-iteration-count: infinite;
-        -webkit-animation-timing-function: linear;*/
-      }
-
-      .ring {
-        /*margin: 0 auto;*/
-        height: 110px;
-        width: 600px;
-        -webkit-transform-style: preserve-3d;
-        -webkit-animation-timing-function: linear;
-        -webkit-animation-name: back-x-spin;
-        -webkit-animation-duration: 0.5s;
-      }
-
-      .ring.animated {
-        /*margin: 0 auto;*/
-        height: 110px;
-        width: 600px;
-        -webkit-transform-style: preserve-3d;
-        -webkit-animation-iteration-count: infinite;
-        -webkit-animation-timing-function: linear;
-        -webkit-animation-name: back-x-spin;
-        -webkit-animation-duration: 0.5s;
-      }
-
-      .ring > div {
-        background-color: #F0f0f0;
-      }
-      .poster {
-        position: absolute;
-        left: 150px;
-        width: 250px;
-        height: 100px;
-        opacity: 0.7;
-        color: rgba(0,0,0,0.8);
-        -webkit-border-radius: 10px;
-      }
-      
-      .poster > p {
-        font-family: 'Georgia', serif;
-        font-size: 36px;
-        font-weight: bold;
-        text-align: center;
-        margin-top: 28px;
-      }
-
-      /*
-      Set up each row to have a different animation duration
-      and alternating y-axis rotation directions.
-      */
-
-      /*
-
-      Here we define each of the three individual animations that
-      we will be using to have our 3D rotation effect. The first
-      animation will perform a full rotation on the x-axis, we'll
-      use that on the whole set of objects. The second and third
-      animations will perform a full rotation on the y-axis in
-      opposite directions, alternating directions between rows.
-    
-      Note that you currently have to specify an intermediate step
-      for rotations even when you are using individual transformation
-      constructs.
-
-      */
-      @-webkit-keyframes x-spin {
-        0%    { -webkit-transform: rotateX(0deg); }
-        50%   { -webkit-transform: rotateX(180deg); }
-        100%  { -webkit-transform: rotateX(360deg); }
-      }
-
-
-      @-webkit-keyframes back-x-spin {
-        0%    { -webkit-transform: rotateX(360deg); }
-        50%   { -webkit-transform: rotateX(180deg); }
-        100%  { -webkit-transform: rotateX(0deg); }
-      }
-
-
-      @-webkit-keyframes y-spin {
-        0%    { -webkit-transform: rotateY(0deg); }
-        50%   { -webkit-transform: rotateY(180deg); }
-        100%  { -webkit-transform: rotateY(360deg); }
-      }
-
-      @-webkit-keyframes back-y-spin {
-        0%    { -webkit-transform: rotateY(360deg); }
-        50%   { -webkit-transform: rotateY(180deg); }
-        100%  { -webkit-transform: rotateY(0deg); }
-      }
-    </style>
-  </head>
+<head>
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js">
+  </script>
+  <title>natie words</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="initial-scale=0.60, minimum-scale=0.60, maximum-scale=0.60">
+  <script src="index.js">
+  </script>
+  <style type="text/css">
+  body {
+    font-size: 12px;
+    overflow: hidden;
+  }
   
-  <body>
+  .stages {
+    top: 42%;
+    bottom: 0;
+    position: absolute;
+    width: 600px;
+    height: 400px;
+    -webkit-perspective: 1000;
+    z-index: 5;
+  }
+  
+  #stage {
+    margin-left: 12%;
+  }
+  
+  #stage2 {
+    left: 35%;
+  }
+  
+  #stage3 {
+    left: 58%;
+  }
+  
+  .rotate {
+    margin: 0 auto;
+    width: 600;
+    height: 400;
+    /* Ensure that we're in 3D space */
+    -webkit-transform-style: preserve-3d;
+  }
+  
+  .ring {
+    height: 110px;
+    width: 600px;
+    -webkit-transform-style: preserve-3d;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-name: back-x-spin;
+    -webkit-animation-duration: 0.5s;
+  }
+  
+  .ring.animated {
+    -webkit-animation-iteration-count: infinite;
 
-  <div id="hideme" style="display:none;"><h2> hit space to play again!</h2></div>
+  }
+  
+  .poster {
+    position: absolute;
+    left: 150px;
+    width: 250px;
+    height: 100px;
+    color: rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .poster > p {
+    font-family: "futura-extrabold", futura-pt, 'Futura Std', Futura, Arial, sans-serif;
+    text-transform: uppercase;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 28px;
+  }
+  
+  @-webkit-keyframes x-spin {
+    0% {
+      -webkit-transform: rotateX(0deg);
+    }
+    50% {
+      -webkit-transform: rotateX(180deg);
+    }
+    100% {
+      -webkit-transform: rotateX(360deg);
+    }
+  }
+  
+  @-webkit-keyframes back-x-spin {
+    0% {
+      -webkit-transform: rotateX(360deg);
+    }
+    50% {
+      -webkit-transform: rotateX(180deg);
+    }
+    100% {
+      -webkit-transform: rotateX(0deg);
+    }
+  }
+  
+  .cover {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    border-image-repeat: stretch;
+    pointer-events: none;
+  }
+  
+  .cover.pattern {
+    background: url("pattern.jpg") center/cover no-repeat transparent;
+    z-index: 20;
+    opacity: 0.15
+  }
+  
+  .cover.carve {
+    background: url("top.png") center/cover no-repeat transparent;
+    z-index: 19;
+  }
+  
+  .cover.bottom {
+    background: url("bottom.png") center/cover no-repeat transparent;
+    z-index: 1;
+  }
+  
+  .header {
+    top: 0;
+    width: 100%;
+    height: 200px;
+    position: absolute;
+    z-index: 25;
+  }
+  
+  #hint {
+    bottom: 0;
+    width: 100%;
+    height: 200px;
+    position: absolute;
+    z-index: 25;
+    font-family: "futura-extrabold", futura-pt, 'Futura Std', Futura, Arial, sans-serif;
+    color: white;
+    font-size: 24px;
+    text-align: center;
+  }
+  
+  .logo {
+    width: 75px;
+    padding: 20px;
+    position: absolute;
+  }
+  
+  .pageLink {
+    width: 75px;
+    right: 5%;
+    padding: 30px;
+    font-family: "futura-extrabold", futura-pt, 'Futura Std', Futura, Arial, sans-serif;
+    color: white;
+    position: absolute;
+    font-size: 1.2em;
+  }
+  
+  @font-face {
+    font-family: futura-extrabold;
+    src: url("futura.ttf");
+  }
+  </style>
+</head>
 
-    <div id="stage">
-      <div class="rotate" id="rotate">
-        <div id="ring-1" class="ring animated">
-        </div>
-      </div>
+<body>
+  <div class="header">
+    <a href="http://natie.com"><img src="logo.png" class="logo"></img>
+    </a>
+    <div class="pageLink">
+      NATIE/LABS/MUSIC
     </div>
-    <div id="stage2">
-      <div class="rotate" id="rotate">
-        <div id="ring-2" class="ring animated">
-        </div>
-    </div>
-    </div>
+  </div>
+  <div class="cover pattern"></div>
+  <div class="cover carve"></div>
+  <div class="cover bottom"></div>
+  <div id="hint">
+    <h2> get your oven mittens ready!!</h2>
+  </div>
+  <div id="wheels">
+  </div>
+</body>
 
-    <div id="stage3">
-      <div class="rotate" id="rotate">
-        <div id="ring-3" class="ring animated">
-        </div>
-        </div>
-    </div>
-
-
-</body></html>
+</html>
