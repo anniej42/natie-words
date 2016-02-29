@@ -39,44 +39,9 @@ var http = require('http');
 
 app.use(express.static(__dirname + '/public'));
 app.enable('view cache');
-// app.engine('handlebars', hbs.engine)
-// app.set('view engine', 'handlebars');
-
-// var sentence = Sentencer.make("{{adjective}} {{adjList(12)}}");
-// console.log(sentence)
-
-// function exposeTemplates(req, res, next) {
-//     // Uses the `Expresshbs` instance to get the get the **precompiled**
-//     // templates which will be shared with the client-side of the app.
-//     hbs.getTemplates('views/', {
-//             cache: app.enabled('view cache'),
-//             precompiled: true
-//         }).then(function(templates) {
-//             // RegExp to remove the ".handlebars" extension from the template names.
-//             var extRegex = new RegExp(hbs.extname + '$');
-
-//             // Creates an array of templates which are exposed via
-//             // `res.locals.templates`.
-//             templates = Object.keys(templates).map(function(name) {
-//                 return {
-//                     name: name.replace(extRegex, ''),
-//                     template: templates[name]
-//                 };
-//             });
-
-//             // Exposes the templates during view rendering.
-//             if (templates.length) {
-//                 res.locals.templates = templates;
-//             }
-
-//             setImmediate(next);
-//         })
-//         .catch(next);
-// }
 
 app.get('/getWords', function(req, res) {
     res.header('Access-Control-Allow-Origin', "*");
-    // var template = hbs.compile(home);
     // var adj1 = Sentencer.make("{{adjList(12)}}");
     // var adj2 = Sentencer.make("{{adjList(12)}}");
     // var nouns = Sentencer.make("{{nList(12)}}");
@@ -87,15 +52,14 @@ app.get('/getWords', function(req, res) {
     // }
     var words = dict();
     var len = words.length;
-    console.log(len)
     var i = Math.floor(Math.random() * len);
     var lib = words[i];
 
-    var word1 = getRandom(lib["0"],12);
-    var word2 = getRandom(lib["1"],12);
-    var word3 = getRandom(lib["2"],12);
+    var word1 = getRandom(lib["0"], 12);
+    var word2 = getRandom(lib["1"], 12);
+    var word3 = getRandom(lib["2"], 12);
     var words = {
-      "name" : lib.name,
+        "name": lib.name,
         "word1": word1,
         "word2": word2,
         "word3": word3
@@ -109,7 +73,7 @@ function getRandom(arr, n) {
         len = arr.length,
         taken = new Array(len);
     if (n > len)
-      n = len;
+        n = len;
     while (n--) {
         var x = Math.floor(Math.random() * len);
         result[n] = arr[x in taken ? taken[x] : x];
