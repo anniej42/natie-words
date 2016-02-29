@@ -1,5 +1,8 @@
 var Sentencer = require('sentencer');
 var express = require('express');
+var dict = require('./dict');
+var words = dict();
+
 var app = express();
 // var hbs = require('handlebars');
 // var exphbs  = require('express-handlebars');
