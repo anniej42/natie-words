@@ -47,13 +47,14 @@
       );
   }
 
-  $(function() {
+  $(window).load(function() {
+    console.log("hi")
       setup_posters(document.getElementById('ring-1'));
       setup_posters(document.getElementById('ring-2'));
       setup_posters(document.getElementById('ring-3'));
       getWords();
       // $("#wheels").html('')
-      $("#wheels").show();
+      // $("#wheels").show();
       $(document).keydown(function(evt) {
           if (evt.keyCode == 32) {
               // increment space count to see how many wheels should be stopped
