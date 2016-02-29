@@ -52,7 +52,7 @@
       setup_posters(document.getElementById('ring-2'));
       setup_posters(document.getElementById('ring-3'));
       getWords();
-      $("#wheels").html('<div class="stages" id="stage"> <div class="rotate" id="rotate"> <div id="ring-1" class="ring animated"> </div> </div> </div> <div class="stages" id="stage2"> <div class="rotate" id="rotate"> <div id="ring-2" class="ring animated"> </div> </div> </div> <div class="stages" id="stage3"> <div class="rotate" id="rotate"> <div id="ring-3" class="ring animated"> </div> </div> </div>')
+      // $("#wheels").html('')
       $("#wheels").show();
       $(document).keydown(function(evt) {
           if (evt.keyCode == 32) {
