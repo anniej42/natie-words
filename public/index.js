@@ -35,13 +35,14 @@
       $.get(
           window.location.origin + '/getWords',
           function(data) {
-              // console.log(data);
 
-              var adj1List = data.adj1.split(",");
-              var adj2List = data.adj2.split(",");
-              var nounList = data.nouns.split(",");
+              // var adj1List = data.word1.split(",");
+              // var adj2List = data.word2.split(",");
+              // var nounList = data.word3.split(",");
 
-              var wordLists = [adj1List, adj2List, nounList];
+              var wordLists = [data.word1, data.word2, data.word3];
+              // var wordLists = [adj1List, adj2List, nounList];
+              $("#hint").html("<h2>"+data.name+"</h2>")
               var rings = [$("#ring-1"), $("#ring-2"), $("#ring-3")];
               for (var j = 0; j < rings.length; j++) {
                   var html = "";
@@ -68,9 +69,9 @@
               //     $("#hideme").show();
               // }
               if (spaceCount == 3) {
+                  getWords();
                   $(".ring").addClass("animated");
                   $(".poster").css("color", "rgba(0, 0, 0, 0.2)");
-                  getWords();
                   spaceCount = 0;
                   return;
               }
