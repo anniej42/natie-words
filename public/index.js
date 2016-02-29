@@ -14,8 +14,6 @@
           // setup the number to show inside the poster
           var content = poster.appendChild(document.createElement('p'));
           content.textContent = i;
-          // add the poster to the row
-          //row.appendChild(poster);
       }
 
   }
@@ -55,6 +53,7 @@
       setup_posters(document.getElementById('ring-3'));
       getWords();
       $("#wheels").html('<div class="stages" id="stage"> <div class="rotate" id="rotate"> <div id="ring-1" class="ring animated"> </div> </div> </div> <div class="stages" id="stage2"> <div class="rotate" id="rotate"> <div id="ring-2" class="ring animated"> </div> </div> </div> <div class="stages" id="stage3"> <div class="rotate" id="rotate"> <div id="ring-3" class="ring animated"> </div> </div> </div>')
+      $("#wheels").show();
       $(document).keydown(function(evt) {
           if (evt.keyCode == 32) {
               // increment space count to see how many wheels should be stopped
