@@ -1,7 +1,7 @@
 {
 "name": "natie-words",
 "version": "0.1.5",
-"description": "Sentencer is a string templating engine for madlibs-style sentence generating.",
+"description": "",
 "scripts": {
   "test": "gulp test"
 },
