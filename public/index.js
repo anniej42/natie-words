@@ -64,7 +64,7 @@
               if (spaceCount == 3) {
                   getWords();
                   $(".ring").addClass("animated");
-                  $(".poster").css("color", "rgba(0, 0, 0, 0.2)");
+                  $(".poster").css("color", "rgba(0, 0, 0, 0.1)");
                   spaceCount = 0;
                   return;
               }
