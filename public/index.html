@@ -152,10 +152,10 @@
         z-index: 25;
     }
     
-    #hint {
+    #hint, .hitSpace {
         bottom: 0;
         width: 100%;
-        height: 200px;
+        height: 20vh;
         position: absolute;
         z-index: 25;
         font-family: "futura-extrabold", futura-pt, 'Futura Std', Futura, Arial, sans-serif;
@@ -164,6 +164,9 @@
         text-align: center;
     }
     
+    .hitSpace {
+      height: 40vh !important;
+    }
     .logo {
         width: 75px;
         padding: 20px;
@@ -171,12 +174,10 @@
     }
     
     .pageLink {
-        /*width: 75px;*/
         padding-right: 2vw;
         padding-top: 4vh;
         right: 0;
         top: 0;
-        /*padding: 30px;*/
         font-family: "futura-extrabold", futura-pt, 'Futura Std', Futura, Arial, sans-serif;
         color: white;
         position: absolute;
@@ -232,6 +233,7 @@
         <div class="cover pattern"></div>
         <div class="cover carve"></div>
         <div class="cover bottom"></div>
+        <div class="hitSpace"> <h4>hit space to play</h4></div>
         <div id="hint">
         </div>
         <div id="wheels">
