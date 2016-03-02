@@ -19,14 +19,14 @@
         top: 42%;
         bottom: 0;
         position: absolute;
-        width: 600px;
+        width: 20%;
         height: 400px;
         -webkit-perspective: 1000;
         z-index: 5;
     }
     
     #stage {
-        margin-left: 12%;
+        left: 12%;
     }
     
     #stage2 {
@@ -47,7 +47,7 @@
     
     .ring {
         height: 110px;
-        width: 600px;
+        width: 20%;
         -webkit-transform-style: preserve-3d;
         -webkit-animation-timing-function: linear;
         -webkit-animation-name: back-x-spin;
@@ -113,18 +113,29 @@
     }
     
     .cover.pattern {
-        background: url("pattern.jpg") center/cover no-repeat transparent;
+        background: url("pattern.svg") center/cover no-repeat transparent;
+        background-repeat: no-repeat;
         z-index: 20;
-        opacity: 0.15
+        /*opacity: 0.15*/
     }
     
     .cover.carve {
-        background: url("top.png") center/cover no-repeat transparent;
+        background: url('top.png');
+        background: url('top.svg'), center/cover no-repeat transparent ;
+        background-size: cover;
+        border-image-repeat: stretch;
+        background-repeat: no-repeat;
+        background-position: center; 
         z-index: 19;
     }
     
     .cover.bottom {
-        background: url("bottom.png") center/cover no-repeat transparent;
+        background: url('bottom.png');
+        background: url('bottom.svg'), center/cover no-repeat transparent ;
+        background-size: cover;
+        border-image-repeat: stretch;
+        background-repeat: no-repeat;
+        background-position: center; 
         z-index: 1;
     }
     
@@ -183,7 +194,7 @@
     <div class="cover bottom"></div>
     <div id="hint">
     </div>
-    <div id="wheels" >
+    <div id="wheels">
         <div class="stages" id="stage">
             <div class="rotate" id="rotate">
                 <div id="ring-1" class="ring animated"> </div>
