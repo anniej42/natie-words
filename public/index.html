@@ -2,192 +2,284 @@
 <html>
 
 <head>
-  <script src="https://code.jquery.com/jquery-2.2.0.min.js">
-  </script>
-  <title>natie words</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="initial-scale=0.60, minimum-scale=0.60, maximum-scale=0.60">
-  <script src="index.js">
-  </script>
-  <style type="text/css">
-  body {
-    font-size: 12px;
-    overflow: hidden;
-  }
-  
-  .stages {
-    top: 42%;
-    bottom: 0;
-    position: absolute;
-    width: 600px;
-    height: 400px;
-    -webkit-perspective: 1000;
-    z-index: 5;
-  }
-  
-  #stage {
-    margin-left: 12%;
-  }
-  
-  #stage2 {
-    left: 35%;
-  }
-  
-  #stage3 {
-    left: 58%;
-  }
-  
-  .rotate {
-    margin: 0 auto;
-    width: 600;
-    height: 400;
-    /* Ensure that we're in 3D space */
-    -webkit-transform-style: preserve-3d;
-  }
-  
-  .ring {
-    height: 110px;
-    width: 600px;
-    -webkit-transform-style: preserve-3d;
-    -webkit-animation-timing-function: linear;
-    -webkit-animation-name: back-x-spin;
-    -webkit-animation-duration: 0.5s;
-  }
-  
-  .ring.animated {
-    -webkit-animation-iteration-count: infinite;
+    <meta name="viewport" content="width=device-width">
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js">
+    </script>
+    <title>natie words</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=0.60, minimum-scale=0.60, maximum-scale=0.60">
+    <script src="index.js">
+    </script>
+    <style type="text/css">
+    body {
+        font-size: 12px;
+        overflow: hidden;
+    }
+    
+    .stages {
+        top: 40vh;
+        bottom: 0;
+        position: absolute;
+        width: 20%;
+        height: 20vh;
+        /*-webkit-perspective: 10000;*/
+        z-index: 5;
+    }
+    
+    #stage {
+        left: 12%;
+    }
+    
+    #stage2 {
+        left: 35%;
+    }
+    
+    #stage3 {
+        left: 58%;
+    }
+    
+    .rotate {
+        margin-left: 10vw;
+        width: 20%;
+        height: 20%;
+        /* Ensure that we're in 3D space */
+        -webkit-transform-style: preserve-3d;
+    }
+    
+    .ring {
+        height: 20%;
+        width: 10vw;
+        -webkit-transform-style: preserve-3d;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-name: back-x-spin;
+        -webkit-animation-duration: 0.5s;
+    }
+    
+    .ring.animated {
+        -webkit-animation-iteration-count: infinite;
+    }
+    
+    .poster {
+        position: absolute;
+        width: 12 vw;
+        /*height: 4vh;*/
+        /*min-width: 20px;*/
+        color: rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
 
-  }
-  
-  .poster {
-    position: absolute;
-    left: 150px;
-    width: 250px;
-    height: 100px;
-    color: rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  
-  .poster > p {
-    font-family: "futura-extrabold", futura-pt, 'Futura Std', Futura, Arial, sans-serif;
-    text-transform: uppercase;
-    font-size: 36px;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 28px;
-  }
-  
-  @-webkit-keyframes x-spin {
-    0% {
-      -webkit-transform: rotateX(0deg);
+    .poster.chosen{
+      color : rgb(90, 157, 255);
     }
-    50% {
-      -webkit-transform: rotateX(180deg);
+    
+    p {
+        font-family:  futura-pt, 'Futura Std', Futura, Arial, sans-serif;
+        text-transform: uppercase;
+        font-size: 1.5vw;
+        font-weight: bold;
+        text-align: center;
+        display: table;
+        /*margin-top: 20%;*/
     }
-    100% {
-      -webkit-transform: rotateX(360deg);
+    
+    @-webkit-keyframes x-spin {
+        0% {
+            -webkit-transform: rotateX(0deg);
+        }
+        50% {
+            -webkit-transform: rotateX(180deg);
+        }
+        100% {
+            -webkit-transform: rotateX(360deg);
+        }
     }
-  }
-  
-  @-webkit-keyframes back-x-spin {
-    0% {
-      -webkit-transform: rotateX(360deg);
+    
+    @-webkit-keyframes back-x-spin {
+        0% {
+            -webkit-transform: rotateX(360deg);
+        }
+        50% {
+            -webkit-transform: rotateX(180deg);
+        }
+        100% {
+            -webkit-transform: rotateX(0deg);
+        }
     }
-    50% {
-      -webkit-transform: rotateX(180deg);
+    
+    .cover {
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 0;
+        /*border-image-repeat: stretch;*/
+        pointer-events: none;
+        background-size: 100% auto;
     }
-    100% {
-      -webkit-transform: rotateX(0deg);
+    
+    .cover.pattern {
+        background: url("pattern.svg") center/cover no-repeat transparent;
+        background-repeat: no-repeat;
+        z-index: 20;
+        /*opacity: 0.15*/
     }
-  }
-  
-  .cover {
-    position: absolute;
-    display: block;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: 0;
-    border-image-repeat: stretch;
-    pointer-events: none;
-  }
-  
-  .cover.pattern {
-    background: url("pattern.jpg") center/cover no-repeat transparent;
-    z-index: 20;
-    opacity: 0.15
-  }
-  
-  .cover.carve {
-    background: url("top.png") center/cover no-repeat transparent;
-    z-index: 19;
-  }
-  
-  .cover.bottom {
-    background: url("bottom.png") center/cover no-repeat transparent;
-    z-index: 1;
-  }
-  
-  .header {
-    top: 0;
-    width: 100%;
-    height: 200px;
-    position: absolute;
-    z-index: 25;
-  }
-  
-  #hint {
-    bottom: 0;
-    width: 100%;
-    height: 200px;
-    position: absolute;
-    z-index: 25;
-    font-family: "futura-extrabold", futura-pt, 'Futura Std', Futura, Arial, sans-serif;
-    color: white;
-    font-size: 24px;
-    text-align: center;
-  }
-  
-  .logo {
-    width: 75px;
-    padding: 20px;
-    position: absolute;
-  }
-  
-  .pageLink {
-    width: 75px;
-    right: 5%;
-    padding: 30px;
-    font-family: "futura-extrabold", futura-pt, 'Futura Std', Futura, Arial, sans-serif;
-    color: white;
-    position: absolute;
-    font-size: 1.2em;
-  }
-  
-  @font-face {
+    
+    .cover.carve {
+        background: url('top.png');
+        background: url('top.svg');
+        background-size: cover;
+        /*background-size: 100% 100%;*/
+        border-image-repeat: stretch;
+        background-repeat: no-repeat;
+        background-position: center;
+        z-index: 19;
+    }
+    
+    .cover.bottom {
+        background: url('bottom.png');
+        background: url('bottom.svg');
+        background-size: cover;
+        /*background-size: 100% 100%;*/
+        border-image-repeat: stretch;
+        background-repeat: no-repeat;
+        background-position: center;
+        z-index: 1;
+    }
+    
+    .header {
+        top: 0;
+        width: 100%;
+        height: 200px;
+        position: absolute;
+        z-index: 25;
+    }
+    
+    #hint, .hitSpace {
+        bottom: 0;
+        width: 100%;
+        height: 20vh;
+        position: absolute;
+        z-index: 25;
+        font-family: futura-pt, 'Futura Std', Futura, Arial, sans-serif;
+        color: white;
+        font-size: 3vmin;
+        text-align: center;
+    }
+    
+    .hitSpace {
+      height: 40vh !important;
+    }
+    .logo {
+        width: 75px;
+        padding: 20px;
+        position: absolute;
+    }
+    
+    .pageLink {
+        padding-right: 2vw;
+        padding-top: 4vh;
+        right: 0;
+        top: 0;
+        font-family: "futura-extrabold", futura-pt, 'Futura Std', Futura, Arial, sans-serif;
+        color: white;
+        position: absolute;
+        font-size: 2vmin;
+    }
+    
+    @media (max-width: 1200px) {
+        .cover.carve,
+        .cover.bottom {
+            background-size: 100% auto;
+            border-image-repeat: stretch;
+        }
+        .stages{
+          top: 46vh;
+        }
+        .wide.blue{
+          background: url('blue.png');
+          background: url('blue.svg');
+          width: 100%;
+          left:0;
+          right: 0;
+          height: 40vh;
+          position: absolute;
+        }
+        .wide.blue.top{
+          top: 0;
+        }
+
+        .wide.blue.bottom{
+          bottom: 0;
+        }
+    }
+    /*  @font-face {
     font-family: futura-extrabold;
     src: url("futura.ttf");
-  }
-  </style>
+  }*/
+    /*#warning-message {
+    display: none;
+}
+@media only screen and (max-width: 1000px;) {
+    .wrapper {
+        display: none;
+    }
+    #warning-message {
+        display: block;
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+    }
+}
+@media only screen and (orientation:landscape) {
+    #warning-message {
+        display: none;
+    }
+}*/
+    </style>
 </head>
 
 <body>
-  <div class="header">
-    <a href="http://natie.com"><img src="logo.png" class="logo"></img>
-    </a>
-    <div class="pageLink">
-      NATIE/LABS/MUSIC
+    <!-- <div id="warning-message">
+        <div class="text"><p>please switch to portrait mode :)</p></p>
+    </div> -->
+    <div class="wrapper">
+        <div class="header">
+            <a href="http://natie.com"><img src="logo.png" class="logo"></img>
+            </a>
+            <div class="pageLink">
+                NATIE/LABS/WORDS
+            </div>
+        </div>
+        <div class="cover pattern"></div>
+        <div class="cover carve">
+          <div class="wide blue top"></div>
+          <div class="wide blue bottom"></div>
+        </div>
+        <div class="cover bottom"></div>
+        <div class="hitSpace"> <h4>hit space to play</h4></div>
+        <div id="hint">
+        </div>
+        <div id="wheels">
+            <div class="stages" id="stage">
+                <div class="rotate" id="rotate">
+                    <div id="ring-1" class="ring animated"> </div>
+                </div>
+            </div>
+            <div class="stages" id="stage2">
+                <div class="rotate" id="rotate">
+                    <div id="ring-2" class="ring animated"> </div>
+                </div>
+            </div>
+            <div class="stages" id="stage3">
+                <div class="rotate" id="rotate">
+                    <div id="ring-3" class="ring animated"> </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="cover pattern"></div>
-  <div class="cover carve"></div>
-  <div class="cover bottom"></div>
-  <div id="hint">
-    <h2> get your oven mittens ready!!</h2>
-  </div>
-  <div id="wheels">
-  </div>
 </body>
 
 </html>
