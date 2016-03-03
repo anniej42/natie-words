@@ -25,12 +25,7 @@
           window.location.origin + '/getWords',
           function(data) {
 
-              // var adj1List = data.word1.split(",");
-              // var adj2List = data.word2.split(",");
-              // var nounList = data.word3.split(",");
-
               var wordLists = [data.word1, data.word2, data.word3];
-              // var wordLists = [adj1List, adj2List, nounList];
               $("#hint").html("<h4>" + data.tagline + "</h4>")
               var rings = [$("#ring-1"), $("#ring-2"), $("#ring-3")];
               for (var j = 0; j < rings.length; j++) {

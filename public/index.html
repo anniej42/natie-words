@@ -21,7 +21,7 @@
         bottom: 0;
         position: absolute;
         width: 20%;
-        height: 20%;
+        height: 20vh;
         /*-webkit-perspective: 10000;*/
         z-index: 5;
     }
@@ -61,8 +61,8 @@
     
     .poster {
         position: absolute;
-        width: 10 vw;
-        height: 4vh;
+        width: 12 vw;
+        /*height: 4vh;*/
         /*min-width: 20px;*/
         color: rgba(0, 0, 0, 0.1);
         text-align: center;
@@ -188,11 +188,30 @@
         font-size: 2vmin;
     }
     
-    @media (max-width: 1000px) {
+    @media (max-width: 1200px) {
         .cover.carve,
         .cover.bottom {
             background-size: 100% auto;
             border-image-repeat: stretch;
+        }
+        .stages{
+          top: 46vh;
+        }
+        .wide.blue{
+          background: url('blue.png');
+          background: url('blue.svg');
+          width: 100%;
+          left:0;
+          right: 0;
+          height: 40vh;
+          position: absolute;
+        }
+        .wide.blue.top{
+          top: 0;
+        }
+
+        .wide.blue.bottom{
+          bottom: 0;
         }
     }
     /*  @font-face {
@@ -235,7 +254,10 @@
             </div>
         </div>
         <div class="cover pattern"></div>
-        <div class="cover carve"></div>
+        <div class="cover carve">
+          <div class="wide blue top"></div>
+          <div class="wide blue bottom"></div>
+        </div>
         <div class="cover bottom"></div>
         <div class="hitSpace"> <h4>hit space to play</h4></div>
         <div id="hint">
