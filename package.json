@@ -8,12 +8,8 @@
 "dependencies": {
   "articles": "~0.2.1",
   "express": "^4.13.4",
-  "express-handlebars": "^3.0.0",
-  "handlebars": "^4.0.5",
   "lodash": "~2.4.1",
-  "natural": "~0.1.28",
-  "randy": "~1.5.1",
-  "sentencer": "^0.1.5"
+  "randy": "~1.5.1"
 },
 "devDependencies": {
   "gulp": "~3.8.8",

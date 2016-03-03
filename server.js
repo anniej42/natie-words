@@ -15,10 +15,12 @@ app.get('/getWords', function(req, res) {
     var i = Math.floor(Math.random() * len);
     var lib = words[i];
 
+    var tagline = getRandom(lib["taglines"], 1);
     var word1 = getRandom(lib["0"], 12);
     var word2 = getRandom(lib["1"], 12);
     var word3 = getRandom(lib["2"], 12);
     var words = {
+      "tagline" : tagline,
         "name": lib.name,
         "word1": word1,
         "word2": word2,
