@@ -8,6 +8,7 @@
       for (var i = 0; i < POSTERS_PER_ROW; i++) {
           var poster = document.createElement('div');
           poster.className = 'poster';
+          
           // compute and assign the transform for this poster
           var transform = 'rotateY(' + (posterAngle * i) + 'deg) translateZ(' + RING_RADIUS + 'px)';
           poster.style.webkitTransform = transform;
@@ -19,12 +20,10 @@
   }
 
   // call init once the document is fully loaded
-
   function getWords() {
       $.get(
           window.location.origin + '/getWords',
           function(data) {
-
               var wordLists = [data.word1, data.word2, data.word3];
               $("#hint").html("<h4>" + data.tagline + "</h4>")
               var rings = [$("#ring-1"), $("#ring-2"), $("#ring-3")];
@@ -41,35 +40,27 @@
       );
   }
 
+
   $(window).load(function() {
-    console.log("hi")
       setup_posters(document.getElementById('ring-1'));
       setup_posters(document.getElementById('ring-2'));
       setup_posters(document.getElementById('ring-3'));
       getWords();
-      // $("#wheels").html('')
-      // $("#wheels").show();
+
       $(document).keydown(function(evt) {
           if (evt.keyCode == 32) {
               // increment space count to see how many wheels should be stopped
-              // if (spaceCount == 3) {
-              //     $("#hideme").show();
-              // }
               if (spaceCount == 3) {
                   getWords();
                   $(".ring").addClass("animated");
-                  // $(".poster").css("color", "rgba(0, 0, 0, 0.1)");
                   $(".poster").removeClass("chosen");
                   spaceCount = 0;
                   return;
               }
 
               spaceCount += 1;
-              // $("#ring-"+spaceCount).css("-webkit-animation-iteration-count", 0);
               $("#ring-" + spaceCount).removeClass("animated")
               var children = $("#ring-" + spaceCount).children();
-              // $(children).css("color", "rgba(0, 0, 0, 0.2)");
-              // $(children).first().css("color", "rgb(90, 157, 255)");
               $(children).first().addClass("chosen");
 
           }
