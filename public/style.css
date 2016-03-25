@@ -10,6 +10,7 @@ body {
     width: 20%;
     height: 20vh;
     /*-webkit-perspective: 10000;*/
+    /*perspective: 10000;*/
     z-index: 5;
 }
 
@@ -31,19 +32,25 @@ body {
     height: 20%;
     /* Ensure that we're in 3D space */
     -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
 }
 
 .ring {
     height: 20%;
     width: 10vw;
     -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
     -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
     -webkit-animation-name: back-x-spin;
+    animation-name: moz-spin;
     -webkit-animation-duration: 0.5s;
+    animation-duration: 0.5s;
 }
 
 .ring.animated {
     -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
 }
 
 .poster {
@@ -69,18 +76,6 @@ p {
     /*margin-top: 20%;*/
 }
 
-@-webkit-keyframes x-spin {
-    0% {
-        -webkit-transform: rotateX(0deg);
-    }
-    50% {
-        -webkit-transform: rotateX(180deg);
-    }
-    100% {
-        -webkit-transform: rotateX(360deg);
-    }
-}
-
 @-webkit-keyframes back-x-spin {
     0% {
         -webkit-transform: rotateX(360deg);
@@ -90,6 +85,18 @@ p {
     }
     100% {
         -webkit-transform: rotateX(0deg);
+    }
+}
+
+@keyframes moz-spin {
+    0% {
+        transform: rotateX(360deg);
+    }
+    50% {
+        transform: rotateX(180deg);
+    }
+    100% {
+        transform: rotateX(0deg);
     }
 }
 
@@ -202,31 +209,3 @@ p {
         bottom: 0;
     }
 }
-
-
-/*  @font-face {
-    font-family: futura-extrabold;
-    src: url("futura.ttf");
-  }*/
-
-
-/*#warning-message {
-    display: none;
-}
-@media only screen and (max-width: 1000px;) {
-    .wrapper {
-        display: none;
-    }
-    #warning-message {
-        display: block;
-        position: absolute;
-        text-align: center;
-        width: 100%;
-        height: 100%;
-    }
-}
-@media only screen and (orientation:landscape) {
-    #warning-message {
-        display: none;
-    }
-}*/

@@ -8,7 +8,7 @@
       for (var i = 0; i < POSTERS_PER_ROW; i++) {
           var poster = document.createElement('div');
           poster.className = 'poster';
-          
+
           // compute and assign the transform for this poster
           var transform = 'rotateY(' + (posterAngle * i) + 'deg) translateZ(' + RING_RADIUS + 'px)';
           poster.style.webkitTransform = transform;
@@ -24,13 +24,18 @@
       $.get(
           window.location.origin + '/getWords',
           function(data) {
+              var isFirefox = typeof InstallTrigger !== 'undefined';
+              var transform = "-webkit-transform";
+              if (isFirefox) {
+                  transform = "-moz-transform";
+              }
               var wordLists = [data.word1, data.word2, data.word3];
               $("#hint").html("<h4>" + data.tagline + "</h4>")
               var rings = [$("#ring-1"), $("#ring-2"), $("#ring-3")];
               for (var j = 0; j < rings.length; j++) {
                   var html = "";
                   for (var i = 0; i < wordLists[j].length; i++) {
-                      html += '<div class="poster" style="-webkit-transform: rotateX(' + i * 30 + 'deg) translateZ(200px); "><p>';
+                      html += '<div class="poster" style="' + transform +': rotateX(' + i * 30 + 'deg) translateZ(200px); "><p>';
                       html += wordLists[j][i];
                       html += '</p></div>';
                   }
