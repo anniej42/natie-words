@@ -10,6 +10,6 @@ first install `node` homebrew, by running `brew install node`, or downloading th
 `cd` into the cloned repository, and run `npm install` to install dependencies.
 
 ## Usage
-to start the app locally, type `npm start`.  
+to start the app locally, type `npm start` or `heroku local` if heroku is installed..  
 
-to push to heroku, create a heroku accountinstall the heroku toolbelt, and follow instructions on https://devcenter.heroku.com/articles/deploying-nodejs.
+to push to heroku, create a heroku account, install the heroku toolbelt, and follow instructions on https://devcenter.heroku.com/articles/deploying-nodejs.
