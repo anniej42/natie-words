@@ -72,9 +72,18 @@
               }
 
               spaceCount += 1;
-              $("#ring-" + spaceCount).removeClass("animated")
+
+              // handle word reveal of each ring
+              $("#ring-" + spaceCount).removeClass("animated");
               var children = $("#ring-" + spaceCount).children();
-              $(children).first().addClass("chosen");
+              var poster = $(children).first();
+
+              // calculate distance stage needs to be from the top for chosen poster to be vertically centered
+              var dtop = $(window).height()/2 - poster.offset().top - poster.height()/2 + $("#stage"+spaceCount).offset().top;
+              var percent = dtop / $(window).height() * 100
+              $("#stage"+spaceCount).css('top', percent + "vh");
+              
+              poster.addClass("chosen");
 
           }
       });
