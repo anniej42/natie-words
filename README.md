@@ -7,7 +7,7 @@ this app is written in `node.js` and hosted on `heroku`, and is routed using `ex
 
 first install `node` homebrew, by running `brew install node`, or downloading the installer from <https://nodejs.org/>.  
 
-`cd` into the cloned repository, and run `npm install`.
+`cd` into the cloned repository, and run `npm install` to install dependencies.
 
 ## Usage
 to start the app locally, type `npm start`.  

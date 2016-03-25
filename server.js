@@ -14,7 +14,7 @@ app.get('/getWords', function(req, res) {
     var words = dict();
     var len = words.length;
     var i = Math.floor(Math.random() * len);
-    var lib = words[i];
+    var lib = words[i]; // picks random category
 
     var tagline = getRandom(lib["taglines"], 1);
     var word1 = getRandom(lib["0"], 12);
@@ -31,6 +31,7 @@ app.get('/getWords', function(req, res) {
     res.send(words);
 });
 
+// generate random element from array
 function getRandom(arr, n) {
     var result = new Array(n),
         len = arr.length,

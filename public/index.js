@@ -24,13 +24,17 @@
       $.get(
           window.location.origin + '/getWords',
           function(data) {
+             // choose transform notation for browser
               var isFirefox = typeof InstallTrigger !== 'undefined';
               var transform = "-webkit-transform";
               if (isFirefox) {
                   transform = "-moz-transform";
               }
+
               var wordLists = [data.word1, data.word2, data.word3];
+              // populate tagline
               $("#hint").html("<h4>" + data.tagline + "</h4>")
+              
               var rings = [$("#ring-1"), $("#ring-2"), $("#ring-3")];
               for (var j = 0; j < rings.length; j++) {
                   var html = "";
@@ -45,6 +49,7 @@
       );
   }
 
+  // calculate and resize upper and lower covers
   function resize() {
       var hcarve = $(".carve").height();
       var distanceToTop = ($(window).height() - hcarve) / 2 + 10;
