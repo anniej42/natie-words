@@ -35,7 +35,7 @@
               for (var j = 0; j < rings.length; j++) {
                   var html = "";
                   for (var i = 0; i < wordLists[j].length; i++) {
-                      html += '<div class="poster" style="' + transform +': rotateX(' + i * 30 + 'deg) translateZ(200px); "><p>';
+                      html += '<div class="poster" style="' + transform + ': rotateX(' + i * 30 + 'deg) translateZ(200px); "><p>';
                       html += wordLists[j][i];
                       html += '</p></div>';
                   }
@@ -45,12 +45,20 @@
       );
   }
 
+  function resize() {
+      var hcarve = $(".carve").height();
+      var distanceToTop = ($(window).height() - hcarve) / 2 + 10;
+      $(".wide.blue.top").height(distanceToTop);
+      $(".wide.blue.footer").height(distanceToTop);
+  }
 
   $(window).load(function() {
       setup_posters(document.getElementById('ring-1'));
       setup_posters(document.getElementById('ring-2'));
       setup_posters(document.getElementById('ring-3'));
       getWords();
+
+      resize();
 
       $(document).keydown(function(evt) {
           if (evt.keyCode == 32) {
@@ -71,3 +79,5 @@
           }
       });
   });
+
+  $(window).resize(resize);
