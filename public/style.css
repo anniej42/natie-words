@@ -24,11 +24,11 @@ body {
 }
 
 #stage1 {
-    left: 12%;
+    left: 10vw;
 }
 
 #stage2 {
-    left: 35%;
+    left: 36vw;
 }
 
 #stage3 {
@@ -60,13 +60,17 @@ body {
 .ring.animated {
     -webkit-animation-iteration-count: infinite;
     animation-iteration-count: infinite;
+    color: rgba(0, 0, 0, 0.1);
+}
+
+.ring{
+  color:transparent;
 }
 
 .poster {
     position: absolute;
     width: 12 vw;
     z-index: 3;
-    color: rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
