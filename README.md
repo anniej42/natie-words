@@ -2,6 +2,10 @@
 
 a fun word jumbler that creates sentences to suit your mood.
 
+## IE support
+
+does not support IE 11 & older. detects if user uses IE, and prompts them to download chrome.  
+
 ## Installation
 this app is written in `node.js` and hosted on `heroku`, and is routed using `express`.  
 
