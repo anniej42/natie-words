@@ -63,13 +63,12 @@ body {
     color: rgba(0, 0, 0, 0.1);
 }
 
-.ring{
-  color:transparent;
+.ring {
+    color: transparent;
 }
 
 .poster {
     position: absolute;
-    width: 12 vw;
     z-index: 3;
     text-align: center;
 }
@@ -149,20 +148,10 @@ p {
 }
 
 .carve {
-    background: url('top.png');
-    background: url('top.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100%;
     z-index: 19;
 }
 
 .bottom {
-    background: url('bottom.png');
-    background: url('bottom.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100%;
     z-index: 2;
 }
 
@@ -172,6 +161,34 @@ p {
     height: 200px;
     position: absolute;
     z-index: 25;
+}
+
+.isIE {
+  display: none;
+    background-color: black;
+    z-index: 30;
+    pointer-events: auto;
+}
+a{
+  color: #cce6ff !important;
+}
+
+.center {
+    z-index: 30;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    font-family: futura-pt, 'Futura Std', Futura, Arial, sans-serif;
+    color: white;
+    font-size: 3vmin;
+    text-align: center;
+}
+
+h4{
+  z-index: 30;
 }
 
 #hint,
