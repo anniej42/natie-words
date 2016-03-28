@@ -216,20 +216,39 @@ h4 {
 }
 
 .logo {
+    margin: 0 !important;
     width: 75px;
-    padding: 20px;
+    padding: 2vh;
     position: absolute;
+    z-index: 25;
 }
 
 .pageLink {
     padding-right: 2vw;
-    padding-top: 4vh;
+    padding-top: 2vh;
     right: 0;
     top: 0;
     font-family: "futura-extrabold", futura-pt, 'Futura Std', Futura, Arial, sans-serif;
     color: white;
     position: absolute;
     font-size: 2vmin;
+}
+
+.footer {
+    width: 100%;
+    z-index: 20;
+    position: absolute;
+    height: 15vh;
+    bottom: 0;
+    text-align: center;
+}
+
+.controls{
+  color: black;
+  height: 15vh;
+}
+.circular.button{
+  margin-top: 5vh !important;
 }
 
 .wide.blue {

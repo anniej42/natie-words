@@ -9,6 +9,16 @@
     <link rel="stylesheet" href="style.css"> </link>
     <meta name="viewport" content="initial-scale=0.60, minimum-scale=0.60, maximum-scale=0.60">
     <script src="index.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/popup.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/transition.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/icon.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/grid.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/button.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/popup.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/transition.min.css">
+
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js"></script> -->
 </head>
 
 <body>
@@ -55,6 +65,23 @@
             <div class="stages" id="stage3">
                 <div class="rotate" id="rotate">
                     <div id="ring-3" class="ring animated"> </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="ui grid">
+                <div class="sixteen column row">
+                    <div id="controlsWrapper" class="right floated four wide column">
+                        <div class="controls">
+                            <button class="circular ui icon button" id="save" data-content="copy link">
+                                <i class=" icon copy" ></i>
+                            </button>
+                            <button class="circular ui icon button" id="share" data-content="share">
+                                <i class="icon facebook"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- <div class="two wide column"></div> -->
                 </div>
             </div>
         </div>

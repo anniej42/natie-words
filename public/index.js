@@ -79,6 +79,8 @@
           return false;
       }
 
+
+
       // if IE, boo them
       if (detectIE()) {
           $(".isIE").show();
@@ -90,6 +92,14 @@
           setup_posters(document.getElementById('ring-3'));
           getWords();
           resize();
+          $('.circular.button').popup({
+              content: function() {
+                  return $(this).id },
+              variation: "mini inverted",
+              position: "top center",
+              prefer: "opposite",
+              inline: "true"
+          });
 
           $(document).keydown(function(evt) {
               if (evt.keyCode == 32) {
