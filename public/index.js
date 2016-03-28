@@ -130,6 +130,6 @@ $(window).load(function() {
 $(window).resize(resize);
 
 function share_page() {
-    var fbpopup = window.open("https://www.facebook.com/sharer/sharer.php?u=http://natie-words.anniejiao.me/", "pop", "width=600, height=400, scrollbars=no");
+    var fbpopup = window.open("https://www.facebook.com/sharer/sharer.php?u=" + window.location.href, "pop", "width=600, height=400, scrollbars=no");
     return false;
 }
