@@ -93,13 +93,13 @@
           getWords();
           resize();
           $('.circular.button').popup({
-              content: function() {
-                  return $(this).id },
               variation: "mini inverted",
               position: "top center",
               prefer: "opposite",
               inline: "true"
           });
+
+          $("#share").on("click", share_page);
 
           $(document).keydown(function(evt) {
               if (evt.keyCode == 32) {
@@ -135,3 +135,8 @@
   });
 
   $(window).resize(resize);
+
+  function share_page() {
+      var fbpopup = window.open("https://www.facebook.com/sharer/sharer.php?u=" + window.location.href, "pop", "width=600, height=400, scrollbars=no");
+      return false;
+  }
