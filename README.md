@@ -1,4 +1,4 @@
-# natie-words
+# natie word whirl
 
 a fun word jumbler that creates sentences to suit your mood.
 
