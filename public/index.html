@@ -7,18 +7,16 @@
     <meta name="description" content="It’s amazing how words always come together. Don’t believe us? Have a go on the Word Whirl. Love, Natie." />
     <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.css">
     <title>Word Whirl</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta property="og:image:url" content="https://raw.githubusercontent.com/anniej42/word-whirl/master/public/image.png" />
     <meta property="og:title" content="A Natie Labs Creative Experiment :: Word Whirl" />
     <meta property="og:description" content="It’s amazing how words always come together. Don’t believe us? Have a go on the Word Whirl. Love, Natie." />
-    <!-- format for specifying image -->
-    <!-- <meta property="og:image" content="http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" /> -->
-    <link rel="stylesheet" href="style.css"> </link>
     <meta name="viewport" content="initial-scale=0.60, minimum-scale=0.60, maximum-scale=0.60">
     <script src="index.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js" defer></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.css">
+    <link rel="stylesheet" href="style.css"> </link>
 </head>
 
 <body>
@@ -32,13 +30,20 @@
         </div>
     </div>
     <div class="container">
-        <div class="wrapper">
-            <div class="header">
+        <!--         <div class="wrapper">
+            <div class="pageheader">
                 <a href="http://natie.com"><img src="logo.png" class="logo"></img>
                 </a>
                 <div class="pageLink">
                     NATIE/LABS/WORDS
                 </div>
+            </div>
+        </div> -->
+
+        <div class="ui large menu">
+            <a class="ui image item"><img src="logo.png" class="logo"></img></a>
+            <div class="right menu">
+                <div class="ui item"><h5>NATIE/LABS/WORDS<h5></div>
             </div>
         </div>
         <div class="cover pattern"></div>
@@ -48,7 +53,7 @@
         <img class="bottom" src="bottom.svg" onerror="this.onerror=null; this.src='bottom.png'">
         <div class="cover blue"></div>
         <div class="hitSpace">
-            <h4>(Psst, hit the space bar)</h4></div>
+            (Psst, tap or click!)</div>
         <div id="hint">
         </div>
         <div id="wheels">
