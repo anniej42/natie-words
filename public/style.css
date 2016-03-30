@@ -191,10 +191,6 @@ a {
     font-size: 3vmin;
     text-align: center;
 }
-/*
-h4 {
-    z-index: 30;
-}*/
 
 #hint {
     top: 22vh;
@@ -224,9 +220,9 @@ h4 {
 }
 
 h5 {
-
-    font-family: "futura-extrabold", futura-pt, 'Futura Std', Futura, Arial, sans-serif;
+    font-family: futura-pt, 'Futura Std', Futura, Helvetica ,Arial, sans-serif;
     color: white;
+    font-style: italic;
     z-index: 30;
 }
 
