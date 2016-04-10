@@ -1,6 +1,16 @@
+// settings for frontend
 const POSTERS_PER_ROW = 12;
 const RING_RADIUS = 200;
+
+// a counter to keep track how many space/tap/click interactions have occured
+// determines whether to make get request
 var spaceCount = 0;
+
+
+/**
+ * helper function to create "posters", ring elements containing spinning 'p' elements
+ * @param {element} ring element to add the 'p' elements to
+ */
 
 function setup_posters(row) {
     var posterAngle = 360 / POSTERS_PER_ROW;
@@ -17,7 +27,11 @@ function setup_posters(row) {
     }
 }
 
-// call init once the document is fully loaded
+/**
+ * get words from ther server
+ * @param {element} ring element to add the 'p' elements to
+ */
+
 function getWords() {
     $.get(
         window.location.origin + '/getWords',
@@ -47,7 +61,10 @@ function getWords() {
     );
 }
 
-// calculate and resize upper and lower covers
+/**
+ * on window rezize, recalcuates element sizes
+ */
+
 function resize() {
     var hcarve = $(".carve").height();
     var distanceToTop = ($(window).height() - hcarve) / 2 + 10;
@@ -57,8 +74,8 @@ function resize() {
 
 $(window).load(function() {
     /**
-     * detect IE
-     * returns version of IE or false, if browser is not Internet Explorer
+     * helper function to detect if the user is using IE
+     * @returns {boolean} true if IE, false if not
      */
     function detectIE() {
         var ua = window.navigator.userAgent;
@@ -77,7 +94,7 @@ $(window).load(function() {
         return false;
     }
 
-    // if IE, boo them
+    // if IE, boo them, clear page
     if (detectIE()) {
         $(".isIE").show();
         $(".container").hide();
@@ -88,6 +105,8 @@ $(window).load(function() {
         setup_posters(document.getElementById('ring-3'));
         getWords();
         resize();
+
+        // creates tooltips
         $('.circular.button').popup({
             variation: "mini inverted",
             position: "top center",
@@ -99,6 +118,10 @@ $(window).load(function() {
 
         $(document).on("keydown tap", function(event) { handleEvent(event) });
 
+        /**
+         * handler for space bar keydown and tap/click events
+         * @returns {boolean} true if IE, false if not
+         */
         function handleEvent(e) {
             if ((e.type == "tap") || (e.type == "keydown" && e.keyCode == 32)) {
                 if (spaceCount == 3) {
@@ -124,34 +147,6 @@ $(window).load(function() {
                 poster.addClass("chosen");
             }
         }
-
-        // $(document).keydown(function(evt) {
-        //     if (evt.keyCode == 32) {
-        //         // increment space count to see how many wheels should be stopped
-        //         if (spaceCount == 3) {
-        //             getWords();
-        //             $(".ring").addClass("animated");
-        //             $(".poster").removeClass("chosen");
-        //             spaceCount = 0;
-        //             return;
-        //         }
-
-        //         spaceCount += 1;
-
-        //         // handle word reveal of each ring
-        //         $("#ring-" + spaceCount).removeClass("animated");
-        //         var children = $("#ring-" + spaceCount).children();
-        //         var poster = $(children).first();
-
-        //         // calculate distance stage needs to be from the top for chosen poster to be vertically centered
-        //         var dtop = $(window).height() / 2 - poster.offset().top - poster.height() / 2 + $("#stage" + spaceCount).offset().top;
-        //         var percent = dtop / $(window).height() * 100;
-        //         $("#stage" + spaceCount).css('top', percent + "vh");
-
-        //         poster.addClass("chosen");
-
-        //     }
-        // });
     }
 });
 
