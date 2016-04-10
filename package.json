@@ -1,31 +1,31 @@
 {
-"name": "natie-words",
-"version": "0.1.5",
-"description": "",
-"scripts": {
-  "test": "gulp test"
-},
-"dependencies": {
-  "articles": "~0.2.1",
-  "express": "^4.13.4",
-  "lodash": "~2.4.1",
-  "randy": "~1.5.1"
-},
-"devDependencies": {
-  "gulp": "~3.8.8",
-  "gulp-mocha": "~1.1.0"
-},
-"main": "server.js",
-"keywords": [
-  "sentences",
-  "sentence",
-  "random",
-  "madlibs",
-  "metaphorpsum"
-],
-"engines": {
-  "node": "4.1.1"
-},
-"author": "Annie Jiao",
-"license": "MIT"
+    "name": "natie-words",
+    "version": "0.1.5",
+    "description": "",
+    "scripts": {
+        "test": "gulp test"
+    },
+    "dependencies": {
+        "articles": "~0.2.1",
+        "express": "^4.13.4",
+        "lodash": "~2.4.1",
+        "randy": "~1.5.1"
+    },
+    "devDependencies": {
+        "gulp": "~3.8.8",
+        "gulp-mocha": "~1.1.0"
+    },
+    "main": "server.js",
+    "keywords": [
+        "sentences",
+        "sentence",
+        "random",
+        "madlibs",
+        "metaphorpsum"
+    ],
+    "engines": {
+        "node": "4.1.1"
+    },
+    "author": "Annie Jiao",
+    "license": "MIT"
 }

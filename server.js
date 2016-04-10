@@ -9,6 +9,11 @@ var http = require('http');
 app.use(express.static(__dirname + '/public'));
 app.enable('view cache');
 
+/**
+* adds handler for get requests from the front end
+* @param {string} url - set "/getWords" to be the request url
+*/
+
 app.get('/getWords', function(req, res) {
     res.header('Access-Control-Allow-Origin', "*");
     var words = dict();
@@ -31,7 +36,12 @@ app.get('/getWords', function(req, res) {
     res.send(words);
 });
 
-// generate random element from array
+/**
+* helper function to generate random n elements from an array
+* @param {array} arr - array to choose element from
+* @param {int} n - length of returned array
+* if n is greater than array length, returns original array in randomized order.
+*/
 function getRandom(arr, n) {
     var result = new Array(n),
         len = arr.length,
@@ -46,5 +56,8 @@ function getRandom(arr, n) {
     return result;
 }
 
+/**
+* set up port
+*/
 app.listen(process.env.PORT || 5000);
 console.log("App listening on port 5000");
